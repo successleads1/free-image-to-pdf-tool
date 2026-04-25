@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DocShift — Legal</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0f;
+    --paper: #f5f3ee;
+    --accent: #ff4e1a;
+    --accent2: #1a3cff;
+    --muted: #8a8880;
+    --card: #ffffff;
+    --border: #e0ddd8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(245,243,238,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .logo span { color: var(--accent); }
+
+  nav a.home-link {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  nav a.home-link:hover { color: var(--accent); }
+
+  /* PAGE TABS */
+  .page-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 0 3rem;
+    background: var(--card);
+    position: relative;
+    z-index: 1;
+  }
+  .page-tab {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 1rem 1.8rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--muted);
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .page-tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .page-tab:hover { color: var(--ink); }
+
+  /* HERO */
+  .legal-hero {
+    padding: 4rem 3rem 2rem;
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+  }
+  .legal-hero .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+  .legal-hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .legal-hero .meta {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .deco-line {
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    margin: 0 3rem 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* CONTENT */
+  .legal-content {
+    max-width: 860px;
+    margin: 0 3rem 5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .legal-page { display: none; }
+  .legal-page.active { display: block; }
+
+  /* SECTION CARDS */
+  .section-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 2rem 2.2rem;
+    margin-bottom: 1.2rem;
+    transition: border-color 0.25s;
+  }
+  .section-card:hover { border-color: #c8c5c0; }
+
+  .section-card h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .section-card h2 .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .section-card p {
+    font-size: 0.93rem;
+    line-height: 1.8;
+    color: #2a2a30;
+    margin-bottom: 0.7rem;
+  }
+  .section-card p:last-child { margin-bottom: 0; }
+
+  .section-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+  }
+  .section-card ul li {
+    font-size: 0.93rem;
+    line-height: 1.8;
+    color: #2a2a30;
+    padding-left: 1.4rem;
+    position: relative;
+    margin-bottom: 0.3rem;
+  }
+  .section-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+  }
+
+  .highlight-box {
+    background: rgba(255,78,26,0.06);
+    border: 1.5px solid rgba(255,78,26,0.2);
+    border-radius: 12px;
+    padding: 1rem 1.3rem;
+    margin-top: 0.8rem;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .highlight-box strong { color: var(--accent); }
+
+  .contact-block {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 18px;
+    padding: 2rem 2.2rem;
+    margin-bottom: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .contact-block h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 0.4rem;
+  }
+  .contact-block p { font-size: 0.88rem; opacity: 0.65; }
+  .contact-block a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 100px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .contact-block a:hover { background: var(--accent2); }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+  }
+  footer strong { color: var(--ink); }
+
+  @media (max-width: 600px) {
+    nav, .page-tabs, .legal-content { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .legal-hero { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .deco-line { margin-left: 1.5rem; }
+    .legal-content { margin-left: 1.5rem; margin-right: 1.5rem; }
+    .section-card { padding: 1.4rem 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">Doc<span>Shift</span></a>
+  <a class="home-link" href="/">← Back to Converter</a>
+</nav>
+
+<div class="page-tabs">
+  <button class="page-tab active" onclick="switchPage('terms', this)">Terms of Use</button>
+  <button class="page-tab" onclick="switchPage('privacy', this)">Privacy Policy</button>
+</div>
+
+<!-- ===== TERMS OF USE ===== -->
+<div class="legal-page active" id="page-terms">
+
+  <div class="legal-hero">
+    <div class="eyebrow">Legal</div>
+    <h1>Terms of Use</h1>
+    <div class="meta">Effective date: 25 April 2026 &nbsp;·&nbsp; Operated by Gush Media</div>
+  </div>
+  <div class="deco-line"></div>
+
+  <div class="legal-content">
+
+    <div class="section-card">
+      <h2><span class="num">1</span> Acceptance of Terms</h2>
+      <p>By accessing or using DocShift at <strong>gushmedia.co.za</strong> ("the Service"), you agree to be bound by these Terms of Use. If you do not agree, please do not use the Service.</p>
+      <p>We may update these terms from time to time. Continued use of the Service after changes are posted constitutes acceptance of the revised terms.</p>
+    </div>
+
+    <div class="section-card">
+      <h2><span class="num">2</span> Description of Service</h2>
+      <p>DocShift is a free, browser-based tool that allows you to convert images and text into PDF documents. All processing occurs entirely within your browser — no files are uploaded to any server.</p>
+    </div>
+
+    <div class="section-card">
+      <h2><span class="num">3</span> Permitted Use</h2>
+      <p>You may use DocShift for personal and commercial purposes, provided that you:</p>
+      <ul>
+        <li>Do not use the Service for any unlawful purpose</li>
+        <li>Do not attempt to reverse-engineer, copy, or redistribute the Service</li>
+        <li>Do not use automated tools to access the Service in ways that could damage or overload it</li>
+        <li>Only convert files and content that you have the legal right to use</li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <h2><span class="num">4</span> Intellectual Property</h2>
+      <p>All design, branding, source code, and content on DocShift is the property of Gush Media. You may not reproduce or redistribute any part of the Service without prior written permission.</p>
+      <p>You retain full ownership of any files you convert using this Service.</p>
+    </div>
+
+    <div class="section-card">
+      <h2><span class="num">5</span> Disclaimer of Warranties</h2>
+      <p>DocShift is provided "as is" without warranties of any kind, expressed or implied. We do not guarantee that the Service will be uninterrupted, error-free, or produce results suitable for your specific purposes.</p>
+      <div class="highlight-box">
+        <strong>Important:</strong> Always keep backups of your original files. We are not responsible for any loss of data arising from your use of this Service.
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h2><span class="num">6</span> Limitation of Liability</h2>
+      <p>To the fullest extent permitted by applicable law, Gush Media shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of — or inability to use — the Service.</p>
+    </div>
+
+    <div class="section-card">
+      <h2><span class="num">7</span> Governing Law</h2>
+      <p>These Terms are governed by the laws of the Republic of South Africa. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts of South Africa.</p>
+    </div>
+
+    <div class="contact-block">
+      <div>
+        <h2>Questions about these terms?</h2>
+        <p>Reach out and we'll get back to you promptly.</p>
+      </div>
+      <a href="mailto:legal@gushmedia.co.za">✉ Contact Us</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== PRIVACY POLICY ===== -->
+<div class="legal-page" id="page-privacy">
+
+  <div class="legal-hero">
+    <div class="eyebrow">Legal</div>
+    <h1>Privacy Policy</h1>
+    <div class="meta">Effective date: 25 April 2026 &nbsp;·&nbsp; Operated by Gush Media</div>
+  </div>
+  <div class="deco-line"></div>
+
+  <div class="legal-content">
+
+    <div class="section-card">
+      <h2><span class="num">1</span> Our Core Commitment</h2>
+      <p>Your privacy is fundamental to how we built DocShift. <strong>We do not collect, store, transmit, or have access to any files you convert using this Service.</strong> All file processing happens entirely within your own browser.</p>
+      <div class="highlight-box">
+        <strong>Zero server uploads.</strong> Your images, documents, and PDFs never leave your device. We physically cannot access them.
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h2><span class="num">2</span> Information We May Collect</h2>
+      <p>While we do not process your files, we may collect limited non-personal technical information to operate the Service:</p>
+      <ul>
+        <li>Browser type and version</li>
+        <li>Operating system</li>
+        <li>Referring URL and pages visited on our site</li>
+        <li>Date and time of your visit</li>
+        <li>General geographic region (country/city level, via IP)</li>
+      </ul>
+      <p>This data is collected in aggregate and cannot be used to identify you personally.</p>
+    </div>
+
+    <div class="section-card">
+      <h2><span class="num">3</span> Cookies & Analytics</h2>
+      <p>We may use cookies or similar technologies to understand how visitors use DocShift, so we can improve the experience. These are analytics-only cookies and do not track you across other websites.</p>
+      <p>You can disable cookies in your browser settings at any time without affecting your ability to use the Service.</p>
+    </div>
+
+    <div class="section-card">
+      <h2><span class="num">4</span> Third-Party Services</h2>
+      <p>DocShift uses the following third-party libraries loaded from external CDNs:</p>
+      <ul>
+        <li>Google Fonts (for typography)</li>
+        <li>jsPDF via cdnjs.cloudflare.com (for PDF generation)</li>
+      </ul>
+      <p>These services may log your IP address as part of their standard operations. Please refer to their respective privacy policies for details.</p>
+    </div>
+
+    <div class="section-card">
+      <h2><span class="num">5</span> How We Use Information</h2>
+      <p>Any aggregate data we collect is used solely to:</p>
+      <ul>
+        <li>Understand overall usage patterns and improve the Service</li>
+        <li>Diagnose technical issues</li>
+        <li>Ensure the security and stability of the platform</li>
+      </ul>
+      <p>We do not sell, rent, or share any information with third parties for marketing purposes.</p>
+    </div>
+
+    <div class="section-card">
+      <h2><span class="num">6</span> POPIA Compliance</h2>
+      <p>DocShift is operated from South Africa and we comply with the <strong>Protection of Personal Information Act (POPIA), Act 4 of 2013</strong>. We are committed to responsible handling of any personal information in accordance with POPIA's conditions for lawful processing.</p>
+      <p>You have the right to request access to, correction of, or deletion of any personal information we may hold about you.</p>
+    </div>
+
+    <div class="section-card">
+      <h2><span class="num">7</span> Data Security</h2>
+      <p>Since no file data ever reaches our servers, the risk of a data breach involving your files is eliminated by design. For any aggregate analytics data we hold, we use industry-standard security practices to protect it.</p>
+    </div>
+
+    <div class="section-card">
+      <h2><span class="num">8</span> Children's Privacy</h2>
+      <p>DocShift is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>
+    </div>
+
+    <div class="section-card">
+      <h2><span class="num">9</span> Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will indicate the effective date at the top of this page. Continued use of the Service constitutes acceptance of the updated policy.</p>
+    </div>
+
+    <div class="contact-block">
+      <div>
+        <h2>Privacy concerns or requests?</h2>
+        <p>We take your privacy seriously and respond to all enquiries.</p>
+      </div>
+      <a href="mailto:privacy@gushmedia.co.za">✉ Contact Us</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <strong>DocShift</strong> by Gush Media &nbsp;·&nbsp;
+  <a href="/" style="color:var(--muted);text-decoration:none;">Back to Converter</a>
+</footer>
+
+<script>
+  function switchPage(name, btn) {
+    document.querySelectorAll('.legal-page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.page-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
